@@ -1,4 +1,7 @@
 const { Client, GatewayIntentBits } = require("discord.js");
+const { connectToMongoDB } = require("./connect");
+const { handleGenerateNewShortURL } = require("./controllers/url");
+
 const client = new Client({
   intents: [
     GatewayIntentBits.Guilds,
@@ -7,8 +10,12 @@ const client = new Client({
   ],
 });
 
+connectToMongoDB("mongodb://localhost:27017/discord-bot").then(() =>
+  console.log("mongodb connected")
+);
+
 client.on("interactionCreate", (interaction) => {
-  console.log(interaction);
+  //console.log(interaction);
   interaction.reply("Pong!!");
 });
 
@@ -16,8 +23,11 @@ client.on("messageCreate", (message) => {
   if (message.author.bot) return;
   if (message.content.startsWith("create")) {
     const url = message.content.split("create ")[1];
+    const shortUrl = handleGenerateNewShortURL(url);
+    console.log(shortUrl);
+    console.log("Generated short url", shortUrl);
     return message.reply({
-      content: "Generating Short ID for " + url,
+      content: "Short url generated " + shortUrl,
     });
   }
   message.reply({
