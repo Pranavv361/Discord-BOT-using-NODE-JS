@@ -8,8 +8,8 @@ const commands = [
 ];
 
 const rest = new REST({ version: "10" }).setToken(
-  //Replace the text with your token from Discord
-  "MTI2MTQ0MTY2OTgzMjc2OTYyNg.GrQQZ2.SAaiJXtla7P5br2CIzqMVksxW19pwciTi2Ce18"
+  
+  "Replace the text with your token from Discord"
 );
 
 (async () => {
@@ -18,8 +18,8 @@ const rest = new REST({ version: "10" }).setToken(
 
     await rest.put(
       Routes.applicationCommands(
-        // Replace the text with your cliend id from Discord
-        "1261441669832769626"
+        
+        "Replace the text with your cliend id from Discord"
       ),
       {
         body: commands,
