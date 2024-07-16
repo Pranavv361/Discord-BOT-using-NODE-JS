@@ -59,3 +59,5 @@ client.on("messageCreate", async (message) => {
 client.login(
   "MTI2MTQ0MTY2OTgzMjc2OTYyNg.GrQQZ2.SAaiJXtla7P5br2CIzqMVksxW19pwciTi2Ce18"
 );
+
+app.listen(port, () => console.log(`Server started at port:${port}`));
