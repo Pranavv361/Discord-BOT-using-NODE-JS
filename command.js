@@ -8,6 +8,7 @@ const commands = [
 ];
 
 const rest = new REST({ version: "10" }).setToken(
+  //Replace the text with your token from Discord
   "MTI2MTQ0MTY2OTgzMjc2OTYyNg.GrQQZ2.SAaiJXtla7P5br2CIzqMVksxW19pwciTi2Ce18"
 );
 
@@ -15,9 +16,15 @@ const rest = new REST({ version: "10" }).setToken(
   try {
     console.log("Started refreshing application (/) commands.");
 
-    await rest.put(Routes.applicationCommands("1261441669832769626"), {
-      body: commands,
-    });
+    await rest.put(
+      Routes.applicationCommands(
+        // Replace the text with your cliend id from Discord
+        "1261441669832769626"
+      ),
+      {
+        body: commands,
+      }
+    );
 
     console.log("Successfully reloaded application (/) commands.");
   } catch (error) {

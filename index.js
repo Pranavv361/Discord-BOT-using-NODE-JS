@@ -57,6 +57,7 @@ client.on("messageCreate", async (message) => {
 });
 
 client.login(
+  //Replace the text with your token from Discord
   "MTI2MTQ0MTY2OTgzMjc2OTYyNg.GrQQZ2.SAaiJXtla7P5br2CIzqMVksxW19pwciTi2Ce18"
 );
 
